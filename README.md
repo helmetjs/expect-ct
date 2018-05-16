@@ -5,7 +5,7 @@ Expect-CT
 
 [_Looking for a changelog?_](https://github.com/helmetjs/helmet/blob/master/HISTORY.md)
 
-The `Expect-CT` HTTP header tells browsers to expect Certificate Transparency. For more, see [this blog post](https://scotthelme.co.uk/a-new-security-header-expect-ct/) and the [in-progress spec](https://datatracker.ietf.org/doc/draft-stark-expect-ct).
+The `Expect-CT` HTTP header tells browsers to expect Certificate Transparency. For more, see [this blog post](https://scotthelme.co.uk/a-new-security-header-expect-ct/) and the [article on MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Expect-CT).
 
 Usage:
 
