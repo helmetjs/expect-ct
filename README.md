@@ -15,13 +15,13 @@ var expectCt = require('expect-ct')
 // Sets Expect-CT: max-age=123
 app.use(expectCt({ maxAge: 123 }))
 
-// Sets Expect-CT: enforce; max-age=123
+// Sets Expect-CT: enforce, max-age=123
 app.use(expectCt({
   enforce: true,
   maxAge: 123
 }))
 
-// Sets Expect-CT: enforce; max-age=30; report-uri="http://example.com/report"
+// Sets Expect-CT: enforce, max-age=30, report-uri="http://example.com/report"
 app.use(expectCt({
   enforce: true,
   maxAge: 30,

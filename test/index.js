@@ -64,7 +64,7 @@ describe('expectCt', function () {
       enforce: true
     })(this.req, this.res, function (err) {
       assert(err == null)
-      assert.equal(this.headers['Expect-CT'], 'enforce; max-age=0')
+      assert.equal(this.headers['Expect-CT'], 'enforce, max-age=0')
 
       done()
     }.bind(this))
@@ -86,7 +86,7 @@ describe('expectCt', function () {
       reportUri: 'http://example.com/report'
     })(this.req, this.res, function (err) {
       assert(err == null)
-      assert.equal(this.headers['Expect-CT'], 'max-age=0; report-uri="http://example.com/report"')
+      assert.equal(this.headers['Expect-CT'], 'max-age=0, report-uri="http://example.com/report"')
 
       done()
     }.bind(this))
@@ -99,7 +99,7 @@ describe('expectCt', function () {
       reportUri: 'http://example.com/report'
     })(this.req, this.res, function (err) {
       assert(err == null)
-      assert.equal(this.headers['Expect-CT'], 'enforce; max-age=123; report-uri="http://example.com/report"')
+      assert.equal(this.headers['Expect-CT'], 'enforce, max-age=123, report-uri="http://example.com/report"')
 
       done()
     }.bind(this))
