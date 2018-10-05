@@ -18,7 +18,7 @@ describe('expectCt', function () {
   it('sets the max-age to 0 when given no options', function (done) {
     expectCt()(this.req, this.res, function (err) {
       assert(err == null)
-      assert.equal(this.headers['Expect-CT'], 'max-age=0')
+      assert.strictEqual(this.headers['Expect-CT'], 'max-age=0')
 
       done()
     }.bind(this))
@@ -27,7 +27,7 @@ describe('expectCt', function () {
   it('sets the max-age to 0 when given an empty object', function (done) {
     expectCt({})(this.req, this.res, function (err) {
       assert(err == null)
-      assert.equal(this.headers['Expect-CT'], 'max-age=0')
+      assert.strictEqual(this.headers['Expect-CT'], 'max-age=0')
 
       done()
     }.bind(this))
@@ -38,7 +38,7 @@ describe('expectCt', function () {
       maxAge: 123
     })(this.req, this.res, function (err) {
       assert(err == null)
-      assert.equal(this.headers['Expect-CT'], 'max-age=123')
+      assert.strictEqual(this.headers['Expect-CT'], 'max-age=123')
 
       done()
     }.bind(this))
@@ -64,7 +64,7 @@ describe('expectCt', function () {
       enforce: true
     })(this.req, this.res, function (err) {
       assert(err == null)
-      assert.equal(this.headers['Expect-CT'], 'enforce, max-age=0')
+      assert.strictEqual(this.headers['Expect-CT'], 'enforce, max-age=0')
 
       done()
     }.bind(this))
@@ -75,7 +75,7 @@ describe('expectCt', function () {
       enforce: false
     })(this.req, this.res, function (err) {
       assert(err == null)
-      assert.equal(this.headers['Expect-CT'], 'max-age=0')
+      assert.strictEqual(this.headers['Expect-CT'], 'max-age=0')
 
       done()
     }.bind(this))
@@ -86,7 +86,7 @@ describe('expectCt', function () {
       reportUri: 'http://example.com/report'
     })(this.req, this.res, function (err) {
       assert(err == null)
-      assert.equal(this.headers['Expect-CT'], 'max-age=0, report-uri="http://example.com/report"')
+      assert.strictEqual(this.headers['Expect-CT'], 'max-age=0, report-uri="http://example.com/report"')
 
       done()
     }.bind(this))
@@ -99,14 +99,14 @@ describe('expectCt', function () {
       reportUri: 'http://example.com/report'
     })(this.req, this.res, function (err) {
       assert(err == null)
-      assert.equal(this.headers['Expect-CT'], 'enforce, max-age=123, report-uri="http://example.com/report"')
+      assert.strictEqual(this.headers['Expect-CT'], 'enforce, max-age=123, report-uri="http://example.com/report"')
 
       done()
     }.bind(this))
   })
 
   it('names its function and middleware', function () {
-    assert.equal(expectCt.name, 'expectCt')
-    assert.equal(expectCt().name, 'expectCt')
+    assert.strictEqual(expectCt.name, 'expectCt')
+    assert.strictEqual(expectCt().name, 'expectCt')
   })
 })
