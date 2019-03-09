@@ -11,11 +11,18 @@
     "connect",
     "expect-ct"
   ],
+  "homepage": "https://helmetjs.github.io/docs/expect-ct/",
   "repository": {
     "type": "git",
     "url": "git://github.com/helmetjs/expect-ct.git"
   },
-  "bugs": "https://github.com/helmetjs/expect-ct/issues",
+  "bugs": {
+    "url": "https://github.com/helmetjs/expect-ct/issues",
+    "email": "me@evanhahn.com"
+  },
+  "engines": {
+    "node": ">=4"
+  },
   "scripts": {
     "pretest": "standard",
     "test": "mocha"
