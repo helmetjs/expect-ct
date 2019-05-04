@@ -1,4 +1,4 @@
-import { IncomingMessage, ServerResponse } from 'http'
+import { IncomingMessage, ServerResponse } from 'http';
 
 interface ExpectCtOptions {
   maxAge?: number;
@@ -6,39 +6,41 @@ interface ExpectCtOptions {
   reportUri?: string;
 }
 
-function parseMaxAge (option: number | void): number {
-  if (option == null) { return 0 }
-
-  if ((typeof option !== 'number') || (option < 0)) {
-    throw new Error(option + ' is not a valid value for maxAge. Please choose a positive integer.')
+function parseMaxAge (option: void | number): number {
+  if (option === undefined) {
+    return 0;
   }
 
-  return option
+  if (typeof option !== 'number' || option < 0) {
+    throw new Error(`${option } is not a valid value for maxAge. Please choose a positive integer.`);
+  }
+
+  return option;
 }
 
 function getHeaderValueFromOptions (options?: ExpectCtOptions): string {
-  options = options || {}
+  options = options || {};
 
-  const directives: string[] = []
+  const directives: string[] = [];
 
   if (options.enforce) {
-    directives.push('enforce')
+    directives.push('enforce');
   }
 
-  directives.push('max-age=' + parseMaxAge(options.maxAge))
+  directives.push(`max-age=${parseMaxAge(options.maxAge)}`);
 
   if (options.reportUri) {
-    directives.push(`report-uri="${options.reportUri}"`)
+    directives.push(`report-uri="${options.reportUri}"`);
   }
 
-  return directives.join(', ')
+  return directives.join(', ');
 }
 
 export = function expectCt (options?: ExpectCtOptions) {
-  const headerValue = getHeaderValueFromOptions(options)
+  const headerValue = getHeaderValueFromOptions(options);
 
   return function expectCt (_req: IncomingMessage, res: ServerResponse, next: () => void) {
-    res.setHeader('Expect-CT', headerValue)
-    next()
-  }
+    res.setHeader('Expect-CT', headerValue);
+    next();
+  };
 }
