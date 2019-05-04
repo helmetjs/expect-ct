@@ -18,10 +18,10 @@ app.use(expectCt({
   maxAge: 123
 }))
 
-// Sets Expect-CT: enforce, max-age=30, report-uri="http://example.com/report"
+// Sets Expect-CT: enforce, max-age=30, report-uri="https://example.com/report"
 app.use(expectCt({
   enforce: true,
   maxAge: 30,
-  reportUri: 'http://example.com/report'
+  reportUri: 'https://example.com/report'
 }))
 ```
