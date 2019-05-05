@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.2.0 - 2019-05-04
 ### Added
 - TypeScript type definitions. See [helmetjs/helmet#188](https://github.com/helmetjs/helmet/issues/188)
 - Additional package metadata (bugs, homepage, etc)
