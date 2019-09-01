@@ -6,16 +6,20 @@ interface ExpectCtOptions {
   reportUri?: string;
 }
 
-function parseMaxAge (option: void | number): number {
-  if (option === undefined) {
-    return 0;
-  }
+function isPositiveInteger(option: unknown): option is number {
+  return (
+    typeof option === 'number' &&
+    option >= 0 &&
+    Math.round(option) === option
+  );
+}
 
-  if (typeof option !== 'number' || option < 0) {
-    throw new Error(`${option } is not a valid value for maxAge. Please choose a positive integer.`);
+function parseMaxAge (option: unknown): number {
+  if (isPositiveInteger(option)) {
+    return option;
+  } else {
+    throw new Error(`${option} is not a valid value for maxAge. Please choose a positive integer.`);
   }
-
-  return option;
 }
 
 function getHeaderValueFromOptions (options?: ExpectCtOptions): string {
@@ -27,7 +31,8 @@ function getHeaderValueFromOptions (options?: ExpectCtOptions): string {
     directives.push('enforce');
   }
 
-  directives.push(`max-age=${parseMaxAge(options.maxAge)}`);
+  const maxAge = 'maxAge' in options ? options.maxAge : 0;
+  directives.push(`max-age=${parseMaxAge(maxAge)}`);
 
   if (options.reportUri) {
     directives.push(`report-uri="${options.reportUri}"`);

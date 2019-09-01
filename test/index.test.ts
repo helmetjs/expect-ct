@@ -29,14 +29,17 @@ describe('expectCt', () => {
       .expect('Expect-CT', 'max-age=123');
   });
 
-  it('throws an error if max-age is not a positive number', () => {
+  it('throws an error if max-age is not a positive integer', () => {
+    expect(expectCt.bind(null, { maxAge: -1 })).toThrow();
+    expect(expectCt.bind(null, { maxAge: -123 })).toThrow();
+    expect(expectCt.bind(null, { maxAge: 1.23 })).toThrow();
     /* eslint-disable @typescript-eslint/no-explicit-any */
+    expect(expectCt.bind(null, { maxAge: undefined as any })).toThrow();
+    expect(expectCt.bind(null, { maxAge: null as any })).toThrow();
     expect(expectCt.bind(null, { maxAge: true as any })).toThrow();
     expect(expectCt.bind(null, { maxAge: false as any })).toThrow();
     expect(expectCt.bind(null, { maxAge: '123' as any })).toThrow();
     expect(expectCt.bind(null, { maxAge: [123] as any })).toThrow();
-    expect(expectCt.bind(null, { maxAge: -1 })).toThrow();
-    expect(expectCt.bind(null, { maxAge: -123 })).toThrow();
     /* eslint-enable @typescript-eslint/no-explicit-any */
   });
 
