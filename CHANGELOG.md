@@ -2,6 +2,7 @@
 
 ## Unreleased
 ### Changed
+- Dropped support for Node <8
 - You must now pass a positive integer for `maxAge` (instead of any positive number)
 - You cannot pass `undefined` for `maxAge` (though you can still omit the property)
 
