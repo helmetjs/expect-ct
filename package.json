@@ -1,0 +1,44 @@
+{
+  "name": "expect-ct",
+  "description": "Middleware to set the Expect-CT header",
+  "version": "1.0.0",
+  "author": "Evan Hahn <me@evanhahn.com> (https://evanhahn.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/helmetjs/expect-ct/issues",
+    "email": "me@evanhahn.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/helmetjs/expect-ct.git"
+  },
+  "keywords": [
+    "express",
+    "security",
+    "expect-ct"
+  ],
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "files": [
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md",
+    "index.js",
+    "index.d.ts"
+  ],
+  "main": "index.js",
+  "typings": "index.d.ts",
+  "scripts": {
+    "pretest": "npm run lint",
+    "lint": "npm run lint:eslint && npm run lint:prettier",
+    "lint:eslint": "eslint .",
+    "lint:prettier": "prettier --check .",
+    "format": "prettier --write .",
+    "test": "node test.js"
+  },
+  "devDependencies": {
+    "eslint": "^8.38.0",
+    "prettier": "^2.8.7"
+  }
+}
