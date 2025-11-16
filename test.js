@@ -58,7 +58,7 @@ function testWithInvalidMaxAge() {
     let threw = false;
     try {
       expectCt({ maxAge });
-    } catch (_) {
+    } catch {
       threw = true;
     }
     assert(threw, `An error should be thrown for ${maxAge}`);
