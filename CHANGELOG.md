@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+### Removed
+
+- **Breaking:** Dropped support for old Node versions. Node 22+ is now required
+
 ## 1.0.0 - 2020-08-02
 
 ### Changed
